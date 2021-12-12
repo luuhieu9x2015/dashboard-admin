@@ -30,7 +30,7 @@ function Navbar({}: Props): ReactElement {
 
       <ul className="navigation--right">
         <li>
-          <Link to="/" className="navigation__link">
+          <Link to="/login" className="navigation__link">
             Login
           </Link>
         </li>

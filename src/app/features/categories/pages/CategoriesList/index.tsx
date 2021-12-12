@@ -75,8 +75,8 @@ export default function CategoriesList() {
       <Box my={2} display="flex" justifyContent="center">
         <Pagination
           color="primary"
-          count={pagination.total_page}
-          page={pagination.page}
+          count={pagination?.total_page}
+          page={pagination?.page}
           onChange={handlePageChange}
         />
       </Box>

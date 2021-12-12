@@ -14,9 +14,8 @@ const usersApi = {
 
   add(data: usersModel): Promise<usersModel> {
     const url = '/users/';
-    console.log(data);
     
-    return axiosClient.post(url, data);
+    return axiosClient.post(url, data); 
   },
 
   update(data: Partial<usersModel>): Promise<usersModel> {

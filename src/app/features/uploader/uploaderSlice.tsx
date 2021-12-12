@@ -53,6 +53,13 @@ export const selectUploaderLoading = (state: RootState) => state.uploader.loadin
 export const selectUploaderFilter = (state: RootState) => state.uploader.filter;
 export const selectUploaderPagination = (state: RootState) => state.uploader.pagination;
 
+export const selectUploaderOptions = createSelector(selectUploaderList, (res) =>
+  res.map((res) => ({
+    label: res.title,
+    value: res.id,
+    img_url: res.img_url,
+  }))
+);
 
 // Reducer
 const uploaderReducer = uploaderSlice.reducer;

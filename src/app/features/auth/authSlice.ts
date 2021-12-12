@@ -1,13 +1,12 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { LOCAL_STORAGE_TOKEN_NAME, LOCAL_STORAGE_REFRESH_TOKEN_NAME } from 'constants/constants';
 import authApi from 'api/authApi';
 import { usersModel } from 'models/';
 
 export const userLogin = createAsyncThunk('user/login/', async (data: usersModel) => {
   try {
     const response = await authApi.login(data);
-    localStorage.setItem(LOCAL_STORAGE_TOKEN_NAME, response.token);
-    localStorage.setItem(LOCAL_STORAGE_REFRESH_TOKEN_NAME, response.refreshToken || '');
+    // localStorage.setItem(LOCAL_STORAGE_TOKEN_NAME, response.token);
+    // localStorage.setItem(LOCAL_STORAGE_REFRESH_TOKEN_NAME, response.refreshToken || '');
     return response;
   } catch (error) {
     console.log(error);

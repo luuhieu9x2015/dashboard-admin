@@ -13,6 +13,7 @@ import {
 } from 'app/features/products/productsSlice';
 import ProductsFilters from '../../components/ProductsFilters';
 import { categoriesActions, selectCategoriesFilter, selectCategoriesList } from 'app/features/categories/categoriesSlice';
+import { uploaderActions, selectUploaderFilter, selectUploaderList } from 'app/features/uploader/uploaderSlice';
 import axios from 'axios';
 import productsApi from 'api/productsApi';
 
@@ -28,9 +29,22 @@ export default function ProductsList() {
   const categoriesList = useAppSelector(selectCategoriesList);
   const productsList = useAppSelector(selectProductsList);
 
+  const uploaderList = useAppSelector(selectUploaderList);
+  const filter_uploader = useAppSelector(selectUploaderFilter);
+
+
+
   useEffect(() => {
     dispatch(categoriesActions.fetchCategoriesList(filter_ca));
   }, [dispatch, filter_ca]);
+
+
+  useEffect(() => {
+    dispatch(uploaderActions.fetchUploaderList(filter_uploader));
+  }, [dispatch, filter_ca]);
+  
+  
+
 
   useEffect(() => {
     dispatch(productsActions.fetchProductsList(filter));

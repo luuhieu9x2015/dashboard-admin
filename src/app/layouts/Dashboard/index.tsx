@@ -7,6 +7,10 @@ import Uploader from 'app/features/uploader';
 
 import * as React from 'react';
 import { Route, Switch } from 'react-router-dom';
+import Login from 'app/pages/Login';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import axios from 'axios';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -34,10 +38,13 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export function AdminLayout() {
+  console.log('adminlayout')
   const classes = useStyles();
 
+  // For GET requests
   return (
     <Box className={classes.root}>
+      <ToastContainer />
       <Box className={classes.header}>{/* <Header /> */}</Box>
 
       <Box className={classes.sidebar}>
@@ -61,7 +68,11 @@ export function AdminLayout() {
           <Route path="/products">
             <Products />
           </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
         </Switch>
+
       </Box>
     </Box>
   );
